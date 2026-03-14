@@ -1,0 +1,16 @@
+﻿@model IEnumerable<VoQuocCuong.SachOnline.Models.NHAXUATBAN>
+
+<ul class="list-group">
+    <li class="list-group-item active text-center" style="font-weight:bold;">
+        SÁCH THEO NHÀ XUẤT BẢN
+    </li>
+
+    @foreach (var nxb in Model)
+    {
+        <li class="list-group-item">
+            <a href="@Url.Action("SachTheoNhaXuatBan", "SachOnline", new { id = nxb.MaNXB })" style="text-decoration:none; display:block; color:#333;">
+                @nxb.TenNXB
+            </a>
+        </li>
+    }
+</ul>

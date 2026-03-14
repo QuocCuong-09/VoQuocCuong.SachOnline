@@ -1,0 +1,33 @@
+﻿@model IEnumerable<VoQuocCuong.SachOnline.Models.SACH>
+
+<h3 class="text-center" style="margin-top: 30px;">SÁCH BÁN NHIỀU</h3>
+<hr>
+
+<div class="row">
+    @foreach (var sach in Model)
+    {
+        <div class="col-sm-6 col-md-6 col-lg-6 mb-4">
+            <div class="d-flex align-items-center border p-2 shadow-sm rounded" style="background-color: #fff;">
+
+                <img src="~/Images/@sach.AnhBia" alt="@sach.TenSach" class="mr-3"
+                     style="width: 80px; height: 110px; object-fit: contain; margin-right: 15px;">
+
+                <div>
+                    <h6 style="margin-bottom: 5px; font-weight: bold; line-height: 1.4;">
+                        <a href="@Url.Action("ChiTietSach", "SachOnline", new { id = sach.MaSach })"
+                           style="text-decoration: none; color: #0056b3;">
+                            @sach.TenSach
+                        </a>
+                    </h6>
+                    <p style="margin: 0; font-size: 13px; color: #555;">
+                        Đã bán: <span style="color: red; font-weight: bold;">@sach.SoLuongBan</span> cuốn
+                    </p>
+                    <p style="margin: 0; font-size: 13px; color: #28a745; font-weight: bold;">
+                        Giá: @String.Format("{0:0,0}", sach.GiaBan) VNĐ
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    }
+</div>
